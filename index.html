@@ -12,11 +12,26 @@
             color: #e0e0e0;
         }
 
-        /* Gesamtlayout mit Top-Frame */
+        /* Gesamtlayout: Links über volle Höhe, rechts mit Top + Content */
         .container {
             display: grid;
-            grid-template-rows: 100px 1fr;
+            grid-template-columns: 250px 1fr;
             height: 100vh;
+        }
+
+        /* Linker Frame (volle Höhe) */
+        .left-frame {
+            background-color: #1e1e1e;
+            padding: 20px;
+            box-sizing: border-box;
+            border-right: 1px solid #2c2c2c;
+        }
+
+        /* Rechte Seite mit Top-Frame + Content */
+        .right-area {
+            display: grid;
+            grid-template-rows: 100px 1fr;
+            height: 100%;
         }
 
         /* Top Frame */
@@ -40,26 +55,11 @@
             width: auto;
         }
 
-        /* Unterer Bereich mit 2 Frames */
-        .main {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            height: 100%;
-        }
-
-        /* Linker Frame */
-        .left-frame {
-            background-color: #1e1e1e;
-            padding: 20px;
-            box-sizing: border-box;
-            border-right: 1px solid #2c2c2c;
-        }
-
-        /* Rechter Frame */
-        .right-frame {
+        /* Content Frame */
+        .content-frame {
             padding: 40px;
-            box-sizing: border-box;
             background-color: #181818;
+            box-sizing: border-box;
         }
 
         h1 {
@@ -75,21 +75,23 @@
 
 <div class="container">
 
-    <!-- Top Frame mit Bildern -->
-    <div class="top-frame">
-        <img src="/images/Schneider_Harald_2022_sw_small.jpg" alt="Harald Schneider" class="profile"> <img src="images/Knights.jpeg" alt="vExpert 2026 Logo" class="logo"> <img src="images/vExpert-2026.jpeg" alt="vExpert 2026 Logo" class="logo">
+    <!-- Linker Frame (jetzt bis ganz oben) -->
+    <div class="left-frame">
+        <img src="images/Schneider_Harald_2022_sw_small.jpg" alt="Harald Schneider" class="profile">
+        <p>Navigation oder Zusatzinformationen</p>
     </div>
 
-    <!-- Hauptbereich -->
-    <div class="main">
+    <!-- Rechte Seite -->
+    <div class="right-area">
 
-        <!-- Frame 1: Links -->
-        <div class="left-frame">
-            <p>Navigation oder Zusatzinformationen</p>
+        <!-- Top Frame mit Bildern -->
+        <div class="top-frame">
+            
+            <img src="images/Knights.jpeg" alt="vExpert 2026 Logo" class="logo"><img src="images/vExpert-2026.jpeg" alt="vExpert 2026 Logo" class="logo">
         </div>
 
-        <!-- Frame 2: Inhalt -->
-        <div class="right-frame">
+        <!-- Content -->
+        <div class="content-frame">
             <h1>Willkommen</h1>
             <p>Hier können Sie Ihren Inhalt platzieren.</p>
         </div>
