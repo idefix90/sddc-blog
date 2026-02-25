@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sddc-blog.org</title>
+    <title>Harald Schneider</title>
     <style>
         body {
             margin: 0;
@@ -12,11 +12,30 @@
             color: #e0e0e0;
         }
 
-        /* 2-Frame Layout */
+        /* Gesamtlayout mit Top-Frame */
         .container {
             display: grid;
-            grid-template-columns: 250px 1fr;
+            grid-template-rows: 80px 1fr;
             height: 100vh;
+        }
+
+        /* Top Frame */
+        .top-frame {
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #2c2c2c;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        /* Unterer Bereich mit 2 Frames */
+        .main {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            height: 100%;
         }
 
         /* Linker Frame */
@@ -28,7 +47,7 @@
         }
 
         .left-frame img {
-            max-width: 75%;
+            max-width: 100%;
             height: auto;
             display: block;
             border-radius: 8px;
@@ -57,18 +76,29 @@
 <body>
 
 <div class="container">
-    <!-- Frame 1: Links oben Bild + Logo -->
-    <div class="left-frame">
-        <img src="images/Schneider_Harald_2022_sw_small.jpg" alt="Harald Schneider">
-        <img src="images/Knights.jpeg" alt="vExpert 2026 Logo" class="logo">
-        <img src="images/vExpert-2026.jpeg" alt="vExpert 2026 Logo" class="logo">
-</div>
 
-    <!-- Frame 2: Inhalt -->
-    <div class="right-frame">
-        <h1>Welcome</h1>
-        <p>waiting for content</p>
+    <!-- Top Frame -->
+    <div class="top-frame">
+        Harald Schneider – Persönliche Webseite
     </div>
+
+    <!-- Hauptbereich -->
+    <div class="main">
+
+        <!-- Frame 1: Links Bild + Logo -->
+        <div class="left-frame">
+            <img src="images/Schneider_Harald_2022_sw_small.jpg" alt="Harald Schneider">
+            <img src="images/vExpert-2026.jpeg" alt="vExpert 2026 Logo" class="logo">
+        </div>
+
+        <!-- Frame 2: Inhalt -->
+        <div class="right-frame">
+            <h1>Welcome</h1>
+            <p>Waiting for content</p>
+        </div>
+
+    </div>
+
 </div>
 
 </body>
