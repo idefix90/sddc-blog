@@ -1,0 +1,54 @@
+baseURL = 'https://sddc-blog.org/'
+locale = 'en-us'
+title = 'SDDC-blog.org'
+theme = ["hugo-admonitions","hermit-v2"]
+defaultContentLanguage = "en"
+# defaultContentLanguageInSubdir = true
+#enableRobotsTXT = true
+ignoreLogs = ['warning-goldmark-raw-html']
+copyright = "Harald Schneider"
+enableEmoji = true
+
+footerHideThemeName = true
+
+[frontmatter]
+date = ["date", "publishDate", "lastmod"]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
+publishDate = ["publishDate", "date"]
+expiryDate = ["expiryDate"]
+
+[params.author]
+  name = "Harald Schneider"
+  about = "about/"
+
+[params]
+  homeSubtitle = "You don't have to memorize it; you just need to know where to look"
+  footerCopyright = "by Harald Schneider"
+  footerHideThemeName = true
+  code_copy_button = true
+
+  homeSubtitlePrinter = true
+  scrollToTop = true 
+  global_mathjax = false
+  readTime = true
+  readTimeSeparator = " - Readtime "
+  shareSocial = true
+
+
+  
+[menu]
+
+  [[menu.main]]
+    name = "HowTo Posts - Core Infrastructure"
+    url = "posts/"
+    weight = 10
+
+  [[menu.main]]
+    name = "About Me"
+    url = "about/"
+    weight = 20
+
+  [[params.socialLinks]]
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/in/harald-schneider/"
+    

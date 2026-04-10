@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+	<channel>
+		<title>Categories on SDDC-blog.org</title>
+		<link>http://localhost:1313/categories/</link>
+		<description>Recent content in Categories on SDDC-blog.org</description>
+		<generator>Hugo -- 0.160.1</generator>
+		<language>en-us</language>
+		<copyright>Harald Schneider</copyright>
+		<lastBuildDate>Wed, 08 Apr 2026 13:35:33 +0100</lastBuildDate>
+		<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+		
+		
+		<item>
+			<title>Brownfield</title>
+			<link>http://localhost:1313/categories/brownfield/</link>
+			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/categories/brownfield/</guid>
+			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>Greenfield</title>
+			<link>http://localhost:1313/categories/greenfield/</link>
+			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/categories/greenfield/</guid>
+			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>How To</title>
+			<link>http://localhost:1313/categories/how-to/</link>
+			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/categories/how-to/</guid>
+			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>Infrastructure</title>
+			<link>http://localhost:1313/categories/infrastructure/</link>
+			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/categories/infrastructure/</guid>
+			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[]]></content>
+		</item>
+		
+	</channel>
+</rss>
