@@ -6,7 +6,7 @@ defaultContentLanguage = "en"
 # defaultContentLanguageInSubdir = true
 #enableRobotsTXT = true
 ignoreLogs = ['warning-goldmark-raw-html']
-copyright = "Harald Schneider"
+copyright = "2026 Harald Schneider"
 enableEmoji = true
 
 footerHideThemeName = true
