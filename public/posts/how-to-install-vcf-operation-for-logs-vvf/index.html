@@ -16,8 +16,8 @@
 Binaries are downloaded from https://support.broadcom.com
 vCenter version at least 9.0.x
 Start the Installation processConnect to your vCenter UI, go to “Inventory”, right-click on your cluster and select “Deploy OVF Template…”">
-  <meta itemprop="datePublished" content="2026-04-08T13:35:33+01:00">
-  <meta itemprop="dateModified" content="2026-04-08T13:35:33+01:00">
+  <meta itemprop="datePublished" content="2026-04-13T13:35:33+01:00">
+  <meta itemprop="dateModified" content="2026-04-13T13:35:33+01:00">
   <meta itemprop="wordCount" content="527">
   <meta itemprop="keywords" content="VVF9.0.x"><meta property="og:url" content="https://sddc-blog.org/posts/how-to-install-vcf-operation-for-logs-vvf/">
   <meta property="og:site_name" content="SDDC-blog.org">
@@ -29,8 +29,8 @@ Start the Installation processConnect to your vCenter UI, go to “Inventory”
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-04-08T13:35:33+01:00">
-    <meta property="article:modified_time" content="2026-04-08T13:35:33+01:00">
+    <meta property="article:published_time" content="2026-04-13T13:35:33+01:00">
+    <meta property="article:modified_time" content="2026-04-13T13:35:33+01:00">
     <meta property="article:tag" content="VVF9.0.x">
 
   <meta name="twitter:card" content="summary">
@@ -51,8 +51,8 @@ Start the Installation processConnect to your vCenter UI, go to “Inventory”
     "articleBody": "Prerequisites:\rInstalled vSphere environment\nBinaries are downloaded from https://support.broadcom.com\nvCenter version at least 9.0.x\nStart the Installation process\rConnect to your vCenter UI, go to “Inventory”, right-click on your cluster and select “Deploy OVF Template…” In the “Select an OVF template” screen, select “Local file” and click “UPLOAD FILES” Within the file browser, select your downloaded OVA file and click “Open” Proceed with “NEXT” Give the new VM a name, a location and proceed with “NEXT” Select a compute resource (host or cluster) and click “NEXT” Ignore the certificate warning and click “NEXT” Accept the license agreement and click “NEXT” Configure the appliance size and click “NEXT” but keep in mind that you should use at least “medium” for production environments. Configure the storage placement for your log appliance and proceed with “NEXT”. Customize the virtual network your VM should run on. Customize additional settings for the appliance and proceed with “NEXT”.\nInitial root password - This will be used as an initial password for the root user account.\nHostname - The hostname or the fully qualified domain name for this VM. Leave blank if DHCP is desired.\nDefault Gateway - The default gateway address for this VM. Leave blank if DHCP is desired.\nDomain Name - The domain name of this VM. Leave blank if DHCP is desired.\nDomain Search Path - The domain search path (comma or space separated domain names) for this VM. Leave blank if DHCP is desired.\nDomain Name Servers - The domain name server IP Addresses for this VM (comma separated). Leave blank if DHCP is desired\nNetwork 1 IP Address - The IP address for this interface. Leave blank if DHCP is desired.\nNetwork 1 Netmask - The netmask or prefix for this interface. Leave blank if DHCP is desired.\nReview the summary and click “FINISH” Wait for the deployment to be completed.\nPower on the VM and connect to the URL. On the initial SETUP, click “NEXT” to start the process.\nOn the next screen you can choice to start a new deployment or join an existing one. In our case, we start a new deployment. Wait for the initial configuration to be completed.\nAfter a couple of minutes, you must specify the admin credentials.\nSpecify your mail server or your http post system, leave blank if you want to do this later\nCorrect time is essential, so configure your time source.\nI do not have a SMTP server ready, so I will skip that, but you can configure SMTP if you want to.\nYou can change the SSL certificate right now, I am fine with the default self-signed certificate so I will skip that.\nSelect “FINISH” to end the initial setup wizard.\nAfter clicking “FINISH” you have to integrate VCF Operations for Logs with your vSphere environment.\nTo configure vSphere Integration click on “Configure vSphere integration »” On the upper right corner, select “ADD VCENTER SERVER” Provide the following information then click “TEST CONNECTION” and if successful, click “SAVE”\nClose the screen with the “\u003c-” in the upper left, then you should see something like this.\nCongratulations!\nYou have completed the basic deployment of VCF Operations for Logs!\n",
     "wordCount" : "527",
     "inLanguage": "en",
-    "datePublished": "2026-04-08T13:35:33+01:00",
-    "dateModified": "2026-04-08T13:35:33+01:00",
+    "datePublished": "2026-04-13T13:35:33+01:00",
+    "dateModified": "2026-04-13T13:35:33+01:00",
     "author":{
         "@type": "Person",
         "name": "Harald Schneider",
@@ -164,7 +164,7 @@ Start the Installation processConnect to your vCenter UI, go to “Inventory”
 
 	<main class="site-main section-inner animated fadeIn faster"><article class="thin">
 			<header class="post-header">
-				<div class="post-date"><span>Apr 8, 2026</span></div>
+				<div class="post-date"><span>Apr 13, 2026</span></div>
 				<h1>How to Install VCF Operation for Logs for VMware vSphere Foundation 9.0.x</h1>
 			</header>
 			<div class="post-description"><p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -196,7 +196,7 @@ Start the Installation processConnect to your vCenter UI, go to “Inventory”
       <line x1="16" y1="2" x2="16" y2="6"></line>
       <line x1="8" y1="2" x2="8" y2="6"></line>
       <line x1="3" y1="10" x2="21" y2="10"></line>
-   </svg>2026-04-08 14:35 &#43;0200
+   </svg>2026-04-13 14:35 &#43;0200
 </p></div>
 			<hr class="post-end">
 			<div class="content">
@@ -372,12 +372,12 @@ something like this.</p>
 			
 		</article>
 		<div class="post-nav thin">
-			<a class="prev-post" href="https://sddc-blog.org/posts/howto-upgrade-your-vsphere-80u3-to-vsphere902/">
+			<a class="prev-post" href="https://sddc-blog.org/posts/how-to-migrate-from-vsphere902-to-vmware-vsphere-foundation902/">
 				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
       <line x1="5" y1="12" x2="19" y2="12"></line>
       <polyline points="12 5 19 12 12 19"></polyline>
-   </svg></span><br><span>How to upgrade your vSphere 8.0U3 to vSphere 9.0.2</span>
+   </svg></span><br><span>How to migrate from vSphere to VMware vSphere Foundation (VVF)</span>
 			</a>
 		</div>
 		<div id="comments" class="thin"></div>
