@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimal-ui">
+<meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="robots" content="index, follow"><meta name="author" content="Harald Schneider">
+<meta name="description" content=""><link rel="manifest" href="/site.webmanifest"><link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="SDDC-blog.org" />
+<meta name="theme-color" content="#494f5c">
+<meta name="msapplication-TileColor" content="#494f5c">
+
+  <meta itemprop="name" content="How to migrate from vSphere to VMware vSphere Foundation (VVF)">
+  <meta itemprop="description" content="Prerequisites:Installed VCF Installer (latest version)
+Depot Configuration has been done
+Binaries are downloaded with status “Success”
+vCenter version at least 9.0.x
+Your virtual switch infrastructure is based on DVS
+for more Information on Preparing to Deploy a new VMware Cloud Foundation or vSphere Foundation Platform, please visit:">
+  <meta itemprop="datePublished" content="2026-04-08T13:35:33+01:00">
+  <meta itemprop="dateModified" content="2026-04-08T13:35:33+01:00">
+  <meta itemprop="wordCount" content="587">
+  <meta itemprop="keywords" content="VCF9.0.X,VVF9.0.x,VCF9.1,VVF9.1"><meta property="og:url" content="https://sddc-blog.org/posts/how-to-migrate-from-vsphere902-to-vvf902/">
+  <meta property="og:site_name" content="SDDC-blog.org">
+  <meta property="og:title" content="How to migrate from vSphere to VMware vSphere Foundation (VVF)">
+  <meta property="og:description" content="Prerequisites:Installed VCF Installer (latest version)
+Depot Configuration has been done
+Binaries are downloaded with status “Success”
+vCenter version at least 9.0.x
+Your virtual switch infrastructure is based on DVS
+for more Information on Preparing to Deploy a new VMware Cloud Foundation or vSphere Foundation Platform, please visit:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-04-08T13:35:33+01:00">
+    <meta property="article:modified_time" content="2026-04-08T13:35:33+01:00">
+    <meta property="article:tag" content="VCF9.0.X">
+    <meta property="article:tag" content="VVF9.0.x">
+    <meta property="article:tag" content="VCF9.1">
+    <meta property="article:tag" content="VVF9.1">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How to migrate from vSphere to VMware vSphere Foundation (VVF)">
+  <meta name="twitter:description" content="Prerequisites:Installed VCF Installer (latest version)
+Depot Configuration has been done
+Binaries are downloaded with status “Success”
+vCenter version at least 9.0.x
+Your virtual switch infrastructure is based on DVS
+for more Information on Preparing to Deploy a new VMware Cloud Foundation or vSphere Foundation Platform, please visit:">
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to migrate from vSphere to VMware vSphere Foundation (VVF)",
+    "name": "How to migrate from vSphere to VMware vSphere Foundation (VVF)",
+    "description": "Prerequisites:\rInstalled VCF Installer (latest version)\nDepot Configuration has been done\nBinaries are downloaded with status \u0026ldquo;Success\u0026rdquo;\nvCenter version at least 9.0.x\nYour virtual switch infrastructure is based on DVS\nfor more Information on Preparing to Deploy a new VMware Cloud Foundation or vSphere Foundation Platform, please visit:\n",
+    "keywords": ["VCF9.0.X", "VVF9.0.x", "VCF9.1", "VVF9.1"],
+    "articleBody": "Prerequisites:\rInstalled VCF Installer (latest version)\nDepot Configuration has been done\nBinaries are downloaded with status “Success”\nvCenter version at least 9.0.x\nYour virtual switch infrastructure is based on DVS\nfor more Information on Preparing to Deploy a new VMware Cloud Foundation or vSphere Foundation Platform, please visit:\nhttps://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/deployment/deploying-a-new-vmware-cloud-foundation-or-vmware-vsphere-foundation-private-cloud-/preparing-your-environment.html\nStart the migration process\rConnect to your VCF Installer appliance via https and provide the credentials. After logging into VCF Installer, select “DEPLOYMENT WIZARD” to start the migration process. To import an existing vCenter, opt in the checkbox next to “Use an existing vCenter as the management domain vCenter.” and click “NEXT” Select the target version and proceed with “NEXT” Optionally, you can enable “Auto-generate passwords for newly installed appliances” or disable “Enable Customer Experience Improvement Program (CEIP)”\nVCF Operations is a core component for VVF and VCF, it is responsible for e.g. Licensing\nOperations Appliance Size: Size of the appliance – small is only recommended for lab environments!\nOperations primary FQDN -e.g. when you will have more than 1 appliance, specify the load balancer (VIP) name as FQDN\nAdministrator Password\nRoot Password\nSpecify the current vCenter credentials for importing the existing vCenter into the VVF or VCF Environment, click “NEXT”\nvCenter: FQDN of your existing vCenter appliance\nRoot Password: root password of your existing vCenter appliance\nSSO user name: e.g. administrator@vsphere.local\nSSO password: e.g. Password of your administrator@vsphere.local account\nYou have to confirm the vCenter certificate to proceed. Review the planned deployment or download the json spec.\nOptional: You can download the json spec and edit with your preferred editor to modify values or options which are not present in the UI. You can then import the json spec at the very beginning to deploy your customized environment.\nThe “Validate \u0026 Deploy” Stage checks all settings and validates the environment.\nCorrect any error and analyze all warnings prior clicking “DEPLOY”\nYou can monitor the deployment status within the VCF Installer UI. If any error occurs, consult the log file and correct the problem. After that, simply restart the deployment with the button on the upper right corner which will be visible in case of an error.\nBut don't panic! This installation takes time! In my LAB environment I had to wait approx. 35 Minutes.\nWhen completed, follow the next steps regarding the licensing of the environment Troubleshooting:\rssh into your VCF Installer appliance and look at /var/log/vmware/vcf/domainmanager/domainmanager.log for any installation issues.\nConnect VCF Operations with vCenter\rLogin into VCF Operations Go to Administration -\u003e Integrations, select “ADD” and select “vCenter” as account type. Fill out all required fields and click “VALIDATE CONNECTION”, on success, click “ADD” Confirm this information. Within the List of Integrations, expand the entry with status “Stopped” and click the three dots Select “Start Collecting All” to enable metric collection Now, the Integration is displaying a warning, but this should disappear after a while. After approx. 10 minutes, the status is green.\nIntegrate VCF Operations for Logs with VCF Operations\rThis step is optional but highly recommended!\nVCF Operations for Logs is a component where you can store your logs in a central place for troubleshooting.\nNavigate to “Infrastructure Operations” -\u003e “Analyze” and click “CONFIGURE OPERATIONS-LOGS APPLIANCE” On the “Operations-Logs Appliance Integration” provide the connection details for your manually deployed VCF Operations for Logs appliance and click “VALIDATE CONNECTION”. Click “SAVE” when the connection test was successful.\nCheck the integration – Navigate to “Infrastructure Operations” -\u003e “Analyze” and see, if your syslog Information is displayed.\nCongratulations!\nYou have completed the basic VVF 9.0.2 deployment!\n",
+    "wordCount" : "587",
+    "inLanguage": "en",
+    "datePublished": "2026-04-08T13:35:33+01:00",
+    "dateModified": "2026-04-08T13:35:33+01:00",
+    "author":{
+        "@type": "Person",
+        "name": "Harald Schneider",
+        "url": "https://sddc-blog.org/about/"
+        },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://sddc-blog.org/posts/how-to-migrate-from-vsphere902-to-vvf902/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SDDC-blog.org",
+      "description": "",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://sddc-blog.org/favicon.ico"
+      }
+    }
+}
+</script><title>How to migrate from vSphere to VMware vSphere Foundation (VVF)</title><link rel="stylesheet dns-prefetch preconnect preload prefetch" as="style" media="screen" href="https://sddc-blog.org/css/style.min.e279117a7a788cb50ab6e0b2510e055a50f6d74467bcbe67cb08fbce843064bf.css" integrity="sha256-4nkRenp4jLUKtuCyUQ4FWlD210RnvL5nywj7zoQwZL8=" crossorigin="anonymous">
+	</head>
+
+<body id="page">
+<header id="site-header">
+	<div class="hdr-wrapper section-inner">
+		<div class="hdr-left">
+			<div class="site-branding">
+				<a href="https://sddc-blog.org/">SDDC-blog.org</a>
+			</div>
+			<nav class="site-nav hide-in-mobile"><a href="https://sddc-blog.org/posts/">HowTo Posts - Core Infrastructure</a><a href="https://sddc-blog.org/about/">About Me</a></nav>
+		</div>
+		<div class="hdr-right hdr-icons">
+			<span class="hdr-links hide-in-mobile"><a href="https://www.linkedin.com/in/harald-schneider/" target="_blank" rel="noopener me" title="Linked in"><svg xmlns="http://www.w3.org/2000/svg" class="feather feather-link" width="24" height="24" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+   </svg></a></span><button id="share-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2">
+      <circle cx="18" cy="5" r="3"></circle>
+      <circle cx="6" cy="12" r="3"></circle>
+      <circle cx="18" cy="19" r="3"></circle>
+      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+   </svg></button>
+ 
+<div id="share-links" class="animated fast">
+    
+    
+    
+    
+    <ul>
+        <li>
+            <a href="https://twitter.com/intent/tweet?hashtags=hermit2&amp;url=https%3a%2f%2fsddc-blog.org%2fposts%2fhow-to-migrate-from-vsphere902-to-vvf902%2f&amp;text=How%20to%20migrate%20from%20vSphere%20to%20VMware%20vSphere%20Foundation%20%28VVF%29" target="_blank" rel="noopener" aria-label="Share on X"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none"
+   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+   <path class="st0" d="m21.3 21.1 -11.4 -18.2h-7.2l11.4 18.2zm-18.6 0 7.2 -6.6m4.2 -5 7.2 -6.6" />
+</svg></a>
+        </li>
+        <li>
+            <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsddc-blog.org%2fposts%2fhow-to-migrate-from-vsphere902-to-vvf902%2f" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none"
+   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+</svg></a>
+        </li>
+        <li>
+            <a href="https://www.threads.net/intent/post?text=How%20to%20migrate%20from%20vSphere%20to%20VMware%20vSphere%20Foundation%20%28VVF%29&amp;url=https%3a%2f%2fsddc-blog.org%2fposts%2fhow-to-migrate-from-vsphere902-to-vvf902%2f" target="_blank" rel="noopener" aria-label="Share on threads"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a14 14 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32l-1.757-1.18c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388q.163.07.321.142c1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69q-.362 0-.739.021c-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221"/></svg></a>
+        </li>
+        <li>
+            <a href="https://bsky.app/intent/compose?text=https%3a%2f%2fsddc-blog.org%2fposts%2fhow-to-migrate-from-vsphere902-to-vvf902%2f" target="_blank" rel="noopener" aria-label="Share on bluesky"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive">
+   <path
+      d="M12,10.899c-0.995,-1.934 -3.704,-5.54 -6.223,-7.318c-2.412,-1.703 -3.333,-1.408 -3.936,-1.136c-0.699,0.316 -0.826,1.388 -0.826,2.019c0,0.631 0.346,5.173 0.572,5.931c0.745,2.504 3.399,3.351 5.842,3.079c0.125,-0.018 0.252,-0.035 0.38,-0.051c-0.126,0.02 -0.252,0.037 -0.38,0.051c-3.581,0.531 -6.761,1.836 -2.59,6.48c4.589,4.75 6.289,-1.019 7.161,-3.944c0.872,2.925 1.877,8.486 7.079,3.944c3.906,-3.944 1.073,-5.949 -2.508,-6.48c-0.128,-0.014 -0.254,-0.031 -0.38,-0.051c0.128,0.016 0.255,0.033 0.38,0.051c2.443,0.272 5.097,-0.574 5.842,-3.079c0.226,-0.758 0.572,-5.3 0.572,-5.931c-0,-0.63 -0.127,-1.703 -0.826,-2.018c-0.603,-0.273 -1.524,-0.568 -3.936,1.135c-2.519,1.778 -5.228,5.384 -6.223,7.318Z" />
+</svg></a>
+        </li>
+        <li>
+            <a href="mailto:?subject=How%20to%20migrate%20from%20vSphere%20to%20VMware%20vSphere%20Foundation%20%28VVF%29&amp;body=https%3a%2f%2fsddc-blog.org%2fposts%2fhow-to-migrate-from-vsphere902-to-vvf902%2f" target="_self" rel="noopener" aria-label="Share on Email"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none"
+   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+   <polyline points="22,6 12,13 2,6"></polyline>
+</svg></a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsddc-blog.org%2fposts%2fhow-to-migrate-from-vsphere902-to-vvf902%2f&amp;source=https%3a%2f%2fsddc-blog.org%2f&amp;title=How%20to%20migrate%20from%20vSphere%20to%20VMware%20vSphere%20Foundation%20%28VVF%29&amp;summary=How%20to%20migrate%20from%20vSphere%20to%20VMware%20vSphere%20Foundation%20%28VVF%29%2c%20by%20Harald%20Schneider%0a%0a%3cnil%3e%0a" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none"
+   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+   <rect x="2" y="9" width="4" height="12"></rect>
+   <circle cx="4" cy="4" r="2"></circle>
+</svg></a>
+        </li>
+        <li>
+            <a href="#" onclick="linkShare(&#34;How to migrate from vSphere to VMware vSphere Foundation (VVF)&#34;,&#34;https://sddc-blog.org/posts/how-to-migrate-from-vsphere902-to-vvf902/&#34;,&#34;How to migrate from vSphere to VMware vSphere Foundation (VVF), by Harald Schneider\n\n\u003cnil\u003e\n&#34;); return false;" target="_self" rel="noopener" aria-label="Copy Link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg></a>
+        </li>
+    </ul>
+</div><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+   </svg></button>
+		</div>
+	</div>
+</header>
+<div id="mobile-menu" class="animated fast">
+	<ul><li><a href="https://sddc-blog.org/posts/">HowTo Posts - Core Infrastructure</a></li><li><a href="https://sddc-blog.org/about/">About Me</a></li></ul>
+</div>
+
+	<main class="site-main section-inner animated fadeIn faster"><article class="thin">
+			<header class="post-header">
+				<div class="post-date"><span>Apr 8, 2026</span></div>
+				<h1>How to migrate from vSphere to VMware vSphere Foundation (VVF)</h1>
+			</header>
+			<div class="post-description"><p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+   stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather">
+   <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+   <line x1="16" y1="8" x2="2" y2="22"></line>
+   <line x1="17.5" y1="15" x2="9" y2="15"></line>
+</svg><a href="https://sddc-blog.org/about/" target="_blank">Harald Schneider</a></p>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
+      <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+      <line x1="7" y1="7" x2="7" y2="7"></line>
+   </svg><span class="tag"><a href="https://sddc-blog.org/tags/vcf9.0.x">VCF9.0.X</a></span><span class="tag"><a href="https://sddc-blog.org/tags/vvf9.0.x">VVF9.0.x</a></span><span class="tag"><a href="https://sddc-blog.org/tags/vcf9.1">VCF9.1</a></span><span class="tag"><a href="https://sddc-blog.org/tags/vvf9.1">VVF9.1</a></span></p>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder">
+      <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+   </svg><span class="category"><a href="https://sddc-blog.org/categories/how-to">How to</a></span><span class="category"><a href="https://sddc-blog.org/categories/brownfield">Brownfield</a></span><span class="category"><a href="https://sddc-blog.org/categories/infrastructure">Infrastructure</a></span></p>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+      <polyline points="14 2 14 8 20 8"></polyline>
+      <line x1="16" y1="13" x2="8" y2="13"></line>
+      <line x1="16" y1="17" x2="8" y2="17"></line>
+      <polyline points="10 9 9 9 8 9"></polyline>
+   </svg>587&nbsp   - Readtime 2 Minutes, 40 Seconds</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+      <line x1="16" y1="2" x2="16" y2="6"></line>
+      <line x1="8" y1="2" x2="8" y2="6"></line>
+      <line x1="3" y1="10" x2="21" y2="10"></line>
+   </svg>2026-04-08 14:35 &#43;0200
+</p></div>
+			<hr class="post-end">
+			<div class="content">
+				 <h1 id="prerequisites">Prerequisites:<a href="#prerequisites" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h1>
+<ul>
+<li>
+<p>Installed VCF Installer (latest version)</p>
+</li>
+<li>
+<p>Depot Configuration has been done</p>
+</li>
+<li>
+<p>Binaries are downloaded with status &ldquo;Success&rdquo;</p>
+</li>
+<li>
+<p>vCenter version at least 9.0.x</p>
+</li>
+<li>
+<p>Your virtual switch infrastructure is based on DVS</p>
+</li>
+</ul>
+<p>for more Information on Preparing to Deploy a new VMware Cloud
+Foundation or vSphere Foundation Platform, please visit:</p>
+<p><a href="https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/deployment/deploying-a-new-vmware-cloud-foundation-or-vmware-vsphere-foundation-private-cloud-/preparing-your-environment.html">https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/deployment/deploying-a-new-vmware-cloud-foundation-or-vmware-vsphere-foundation-private-cloud-/preparing-your-environment.html</a></p>
+<h2 id=""><a href="#" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<h1 id="start-the-migration-process">Start the migration process<a href="#start-the-migration-process" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h1>
+<ul>
+<li>Connect to your VCF Installer appliance via https and provide the
+credentials.</li>
+</ul>
+<p><img src="images/image1.png" alt=""></p>
+<ul>
+<li>After logging into VCF Installer, select &ldquo;DEPLOYMENT WIZARD&rdquo; to start
+the migration process.</li>
+</ul>
+<p><img src="images/image2.png" alt=""></p>
+<ul>
+<li>To import an existing vCenter, opt in the checkbox next to &ldquo;Use an
+existing vCenter as the management domain vCenter.&rdquo; and click &ldquo;NEXT&rdquo;</li>
+</ul>
+<p><img src="images/image3.png" alt=""></p>
+<ul>
+<li>Select the target version and proceed with &ldquo;NEXT&rdquo;</li>
+</ul>
+<blockquote>
+<p>Optionally, you can enable &ldquo;Auto-generate passwords for newly
+installed appliances&rdquo; or disable &ldquo;Enable Customer Experience
+Improvement Program (CEIP)&rdquo;</p>
+</blockquote>
+<p><img src="images/image4.png" alt=""></p>
+<ul>
+<li>
+<p>VCF Operations is a core component for VVF and VCF, it is responsible
+for e.g. Licensing</p>
+<ul>
+<li>
+<p>Operations Appliance Size: Size of the appliance &ndash; small is only
+recommended for lab environments!</p>
+</li>
+<li>
+<p>Operations primary FQDN -e.g. when you will have more than 1
+appliance, specify the load balancer (VIP) name as FQDN</p>
+</li>
+<li>
+<p>Administrator Password</p>
+</li>
+<li>
+<p>Root Password</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/image5.png" alt=""></p>
+<ul>
+<li>
+<p>Specify the current vCenter credentials for importing the existing
+vCenter into the VVF or VCF Environment, click &ldquo;NEXT&rdquo;</p>
+<ul>
+<li>
+<p>vCenter: FQDN of your existing vCenter appliance</p>
+</li>
+<li>
+<p>Root Password: root password of your existing vCenter appliance</p>
+</li>
+<li>
+<p>SSO user name: e.g. <a href="mailto:administrator@vsphere.local">administrator@vsphere.local</a></p>
+</li>
+<li>
+<p>SSO password: e.g. Password of your <a href="mailto:administrator@vsphere.local">administrator@vsphere.local</a>
+account</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/image6.png" alt=""></p>
+<ul>
+<li>You have to confirm the vCenter certificate to proceed.</li>
+</ul>
+<p><img src="images/image7.png" alt=""></p>
+<ul>
+<li>
+<p>Review the planned deployment or download the json spec.</p>
+<ul>
+<li>Optional: You can download the json spec and edit with your
+preferred editor to modify values or options which are not present
+in the UI.</li>
+</ul>
+</li>
+<li>
+<p>You can then import the json spec at the very beginning to deploy your
+customized environment.</p>
+</li>
+</ul>
+<p><img src="images/image8.png" alt=""></p>
+<ul>
+<li>
+<p>The &ldquo;Validate &amp; Deploy&rdquo; Stage checks all settings and validates the
+environment.</p>
+</li>
+<li>
+<p>Correct any error and analyze all warnings prior clicking &ldquo;DEPLOY&rdquo;</p>
+</li>
+</ul>
+<blockquote>
+</blockquote>
+<p><img src="images/image9.png" alt=""></p>
+<ul>
+<li>You can monitor the deployment status within the VCF Installer UI.</li>
+</ul>
+<blockquote>
+<p>If any error occurs, consult the log file and correct the problem.
+After that, simply restart the deployment with the button on the upper
+right corner which will be visible in case of an error.</p>
+<p>But don't panic! This installation takes time! In my LAB environment
+I had to wait approx. 35 Minutes.</p>
+</blockquote>
+<p><img src="images/image10.png" alt=""></p>
+<ul>
+<li>When completed, follow the next steps regarding the licensing of the
+environment</li>
+</ul>
+<p><img src="images/image11.png" alt=""></p>
+<h1 id="troubleshooting">Troubleshooting:<a href="#troubleshooting" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h1>
+<p>ssh into your VCF Installer appliance and look at
+/var/log/vmware/vcf/domainmanager/domainmanager.log for any
+installation issues.</p>
+<h1 id="connect-vcf-operations-with-vcenter">Connect VCF Operations with vCenter<a href="#connect-vcf-operations-with-vcenter" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h1>
+<ul>
+<li>Login into VCF Operations</li>
+</ul>
+<p><img src="images/image12.png" alt=""></p>
+<ul>
+<li>Go to Administration -&gt; Integrations, select &ldquo;ADD&rdquo; and select
+&ldquo;vCenter&rdquo; as account type.</li>
+</ul>
+<p><img src="images/image13.png" alt=""></p>
+<ul>
+<li>Fill out all required fields and click &ldquo;VALIDATE CONNECTION&rdquo;, on
+success, click &ldquo;ADD&rdquo;</li>
+</ul>
+<p><img src="images/image14.png" alt=""></p>
+<ul>
+<li>Confirm this information.</li>
+</ul>
+<p><img src="images/image15.png" alt=""></p>
+<ul>
+<li>Within the List of Integrations, expand the entry with status
+&ldquo;Stopped&rdquo; and click the three dots</li>
+</ul>
+<p><img src="images/image16.png" alt=""></p>
+<ul>
+<li>Select &ldquo;Start Collecting All&rdquo; to enable metric collection</li>
+</ul>
+<p><img src="images/image17.png" alt=""></p>
+<ul>
+<li>Now, the Integration is displaying a warning, but this should
+disappear after a while.</li>
+</ul>
+<p><img src="images/image18.png" alt=""></p>
+<p>After approx. 10 minutes, the status is green.</p>
+<p><img src="images/image19.png" alt=""></p>
+<h1 id="integrate-vcf-operations-for-logs-with-vcf-operations">Integrate VCF Operations for Logs with VCF Operations<a href="#integrate-vcf-operations-for-logs-with-vcf-operations" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h1>
+<blockquote>
+<p>This step is optional but highly recommended!</p>
+<p>VCF Operations for Logs is a component where you can store your logs
+in a central place for troubleshooting.</p>
+</blockquote>
+<ul>
+<li>Navigate to &ldquo;Infrastructure Operations&rdquo; -&gt; &ldquo;Analyze&rdquo; and click
+&ldquo;CONFIGURE OPERATIONS-LOGS APPLIANCE&rdquo;</li>
+</ul>
+<p><img src="images/image20.png" alt=""></p>
+<ul>
+<li>On the &ldquo;Operations-Logs Appliance Integration&rdquo; provide the connection
+details for your manually deployed VCF Operations for Logs appliance
+and click &ldquo;VALIDATE CONNECTION&rdquo;.</li>
+</ul>
+<p><img src="images/image21.png" alt=""></p>
+<ul>
+<li>
+<p>Click &ldquo;SAVE&rdquo; when the connection test was successful.</p>
+</li>
+<li>
+<p>Check the integration &ndash; Navigate to &ldquo;Infrastructure Operations&rdquo; -&gt;
+&ldquo;Analyze&rdquo; and see, if your syslog Information is displayed.</p>
+</li>
+</ul>
+<p><img src="images/image22.png" alt=""></p>
+<p><strong>Congratulations!</strong></p>
+<p><strong>You have completed the basic VVF 9.0.2 deployment!</strong></p>
+
+			</div>
+			
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://sddc-blog.org/posts/how-to-install-vcf-operation-for-logs-vvf/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+   </svg>&nbsp;</span><br><span>How to Install VCF Operation for Logs for VMware vSphere Foundation 9.0.x</span>
+			</a>
+			<a class="prev-post" href="https://sddc-blog.org/posts/howto-upgrade-your-vsphere-80u3-to-vsphere902/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+   </svg></span><br><span>How to upgrade your vSphere 8.0U3 to vSphere 9.0.2</span>
+			</a>
+		</div>
+		<div id="comments" class="thin"></div>
+	</main>
+<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+<p>
+	&copy; 2026 <a href="https://sddc-blog.org/">SDDC-blog.org</a>
+	&#183; by Harald Schneider
+	
+	</p></footer>
+<script async src="https://sddc-blog.org/js/bundle.min.217d62397cbef6f9f5d8bab30d7e7969d78c52a436ca5d5790cef4d6fef3f1f2.js" integrity="sha256-IX1iOXy+9vn12LqzDX55adeMUqQ2yl1XkM701v7z8fI=" crossorigin="anonymous"></script><script async src="https://sddc-blog.org/js/social-share.min.24409a4f6e5537d70ffc55ec8f9192208d718678cb8638585342423020b37f39.js" integrity="sha256-JECaT25VN9cP/FXsj5GSII1xhnjLhjhYU0JCMCCzfzk=" crossorigin="anonymous"></script></body>
+</html>

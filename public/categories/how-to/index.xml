@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
 	<channel>
 		<title>How To on SDDC-blog.org</title>
-		<link>http://localhost:1313/categories/how-to/</link>
+		<link>https://sddc-blog.org/categories/how-to/</link>
 		<description>Recent content in How To on SDDC-blog.org</description>
 		<generator>Hugo -- 0.160.1</generator>
 		<language>en-us</language>
 		<copyright>Harald Schneider</copyright>
 		<lastBuildDate>Mon, 13 Apr 2026 13:35:33 +0100</lastBuildDate>
-		<atom:link href="http://localhost:1313/categories/how-to/index.xml" rel="self" type="application/rss+xml" />
+		<atom:link href="https://sddc-blog.org/categories/how-to/index.xml" rel="self" type="application/rss+xml" />
 		
 		
 		<item>
 			<title>How to Install VCF Operation for Logs for VMware vSphere Foundation 9.0.x</title>
-			<link>http://localhost:1313/posts/how-to-install-vcf-operation-for-logs-vvf/</link>
-			<pubDate>Mon, 13 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/posts/how-to-install-vcf-operation-for-logs-vvf/</guid>
+			<link>https://sddc-blog.org/posts/how-to-install-vcf-operation-for-logs-vvf/</link>
+			<pubDate>Mon, 13 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>https://sddc-blog.org/posts/how-to-install-vcf-operation-for-logs-vvf/</guid>
 			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[<h1 id="prerequisites">Prerequisites:<a href="#prerequisites" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" class="feather">
       <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
@@ -187,8 +187,8 @@ something like this.</p>
 		
 		<item>
 			<title>How to migrate from vSphere to VMware vSphere Foundation (VVF)</title>
-			<link>http://localhost:1313/posts/how-to-migrate-from-vsphere902-to-vmware-vsphere-foundation902/</link>
-			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/posts/how-to-migrate-from-vsphere902-to-vmware-vsphere-foundation902/</guid>
+			<link>https://sddc-blog.org/posts/how-to-migrate-from-vsphere902-to-vvf902/</link>
+			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>https://sddc-blog.org/posts/how-to-migrate-from-vsphere902-to-vvf902/</guid>
 			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[<h1 id="prerequisites">Prerequisites:<a href="#prerequisites" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" class="feather">
       <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
@@ -425,8 +425,8 @@ and click &ldquo;VALIDATE CONNECTION&rdquo;.</li>
 		
 		<item>
 			<title>How to upgrade your vSphere 8.0U3 to vSphere 9.0.2</title>
-			<link>http://localhost:1313/posts/howto-upgrade-your-vsphere-80u3-to-vsphere902/</link>
-			<pubDate>Fri, 03 Apr 2026 07:28:08 +0200</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/posts/howto-upgrade-your-vsphere-80u3-to-vsphere902/</guid>
+			<link>https://sddc-blog.org/posts/howto-upgrade-your-vsphere-80u3-to-vsphere902/</link>
+			<pubDate>Fri, 03 Apr 2026 07:28:08 +0200</pubDate><author>Harald Schneider</author><guid>https://sddc-blog.org/posts/howto-upgrade-your-vsphere-80u3-to-vsphere902/</guid>
 			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[<h2 id="stumbling-stones">Stumbling stones<a href="#stumbling-stones" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" class="feather">
       <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
@@ -591,8 +591,8 @@ and click &ldquo;VALIDATE CONNECTION&rdquo;.</li>
 		
 		<item>
 			<title>How to Install VCF Installer 9.0.2</title>
-			<link>http://localhost:1313/posts/how-to-install-vcf-installer-902/</link>
-			<pubDate>Sat, 28 Mar 2026 07:28:08 +0200</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/posts/how-to-install-vcf-installer-902/</guid>
+			<link>https://sddc-blog.org/posts/how-to-install-vcf-installer-902/</link>
+			<pubDate>Sat, 28 Mar 2026 07:28:08 +0200</pubDate><author>Harald Schneider</author><guid>https://sddc-blog.org/posts/how-to-install-vcf-installer-902/</guid>
 			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[<h1 id="how-to-deploy-and-configure-vcf-installer-902">How to deploy and configure VCF Installer 9.0.2<a href="#how-to-deploy-and-configure-vcf-installer-902" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
       stroke-linecap="round" stroke-linejoin="round" class="feather">
       <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
@@ -761,8 +761,8 @@ and click &ldquo;VALIDATE CONNECTION&rdquo;.</li>
 		
 		<item>
 			<title>How to install an VCF offline depot based on apache and PhotonOS</title>
-			<link>http://localhost:1313/posts/howto-install-offline-depot/</link>
-			<pubDate>Wed, 18 Mar 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/posts/howto-install-offline-depot/</guid>
+			<link>https://sddc-blog.org/posts/howto-install-offline-depot/</link>
+			<pubDate>Wed, 18 Mar 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>https://sddc-blog.org/posts/howto-install-offline-depot/</guid>
 			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[<p>How to install an offline-depot based on PhotonOS 5 minimal.</p>
 <p><strong>Prerequisites</strong></p>
 <ol>

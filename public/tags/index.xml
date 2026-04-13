@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
 	<channel>
 		<title>Tags on SDDC-blog.org</title>
-		<link>http://localhost:1313/tags/</link>
+		<link>https://sddc-blog.org/tags/</link>
 		<description>Recent content in Tags on SDDC-blog.org</description>
 		<generator>Hugo -- 0.160.1</generator>
 		<language>en-us</language>
 		<copyright>Harald Schneider</copyright>
 		<lastBuildDate>Mon, 13 Apr 2026 13:35:33 +0100</lastBuildDate>
-		<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+		<atom:link href="https://sddc-blog.org/tags/index.xml" rel="self" type="application/rss+xml" />
 		
 		
 		<item>
 			<title>VVF9.0.x</title>
-			<link>http://localhost:1313/tags/vvf9.0.x/</link>
-			<pubDate>Mon, 13 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/tags/vvf9.0.x/</guid>
+			<link>https://sddc-blog.org/tags/vvf9.0.x/</link>
+			<pubDate>Mon, 13 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>https://sddc-blog.org/tags/vvf9.0.x/</guid>
 			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>VCF9.0.X</title>
-			<link>http://localhost:1313/tags/vcf9.0.x/</link>
-			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/tags/vcf9.0.x/</guid>
+			<link>https://sddc-blog.org/tags/vcf9.0.x/</link>
+			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>https://sddc-blog.org/tags/vcf9.0.x/</guid>
 			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>VCF9.1</title>
-			<link>http://localhost:1313/tags/vcf9.1/</link>
-			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/tags/vcf9.1/</guid>
+			<link>https://sddc-blog.org/tags/vcf9.1/</link>
+			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>https://sddc-blog.org/tags/vcf9.1/</guid>
 			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[]]></content>
 		</item>
 		
 		<item>
 			<title>VVF9.1</title>
-			<link>http://localhost:1313/tags/vvf9.1/</link>
-			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>http://localhost:1313/tags/vvf9.1/</guid>
+			<link>https://sddc-blog.org/tags/vvf9.1/</link>
+			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>https://sddc-blog.org/tags/vvf9.1/</guid>
 			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[]]></content>
 		</item>
 		
