@@ -2,58 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/brownfield/</loc>
+    <loc>https://sddc-blog.org/categories/brownfield/</loc>
     <lastmod>2026-04-13T13:35:33+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://sddc-blog.org/categories/</loc>
     <lastmod>2026-04-13T13:35:33+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/greenfield/</loc>
+    <loc>https://sddc-blog.org/categories/greenfield/</loc>
     <lastmod>2026-04-13T13:35:33+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/how-to/</loc>
+    <loc>https://sddc-blog.org/categories/how-to/</loc>
     <lastmod>2026-04-13T13:35:33+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/how-to-install-vcf-operation-for-logs-vvf/</loc>
+    <loc>https://sddc-blog.org/posts/how-to-install-vcf-operation-for-logs-vvf/</loc>
     <lastmod>2026-04-13T13:35:33+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/infrastructure/</loc>
+    <loc>https://sddc-blog.org/categories/infrastructure/</loc>
     <lastmod>2026-04-13T13:35:33+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://sddc-blog.org/posts/</loc>
     <lastmod>2026-04-13T13:35:33+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://sddc-blog.org/</loc>
     <lastmod>2026-04-13T13:35:33+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://sddc-blog.org/tags/</loc>
     <lastmod>2026-04-13T13:35:33+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/vvf9.0.x/</loc>
+    <loc>https://sddc-blog.org/tags/vvf9.0.x/</loc>
     <lastmod>2026-04-13T13:35:33+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/how-to-migrate-from-vsphere902-to-vvf902/</loc>
-    <lastmod>2026-04-08T13:35:33+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/vcf9.0.x/</loc>
-    <lastmod>2026-04-08T13:35:33+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/vcf9.1/</loc>
-    <lastmod>2026-04-08T13:35:33+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/vvf9.1/</loc>
-    <lastmod>2026-04-08T13:35:33+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/howto-upgrade-your-vsphere-80u3-to-vsphere902/</loc>
+    <loc>https://sddc-blog.org/posts/howto-upgrade-your-vsphere-80u3-to-vsphere902/</loc>
     <lastmod>2026-04-03T07:28:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/how-to-install-vcf-installer-902/</loc>
+    <loc>https://sddc-blog.org/tags/vcf9.0.x/</loc>
+    <lastmod>2026-04-03T07:28:08+02:00</lastmod>
+  </url><url>
+    <loc>https://sddc-blog.org/tags/vcf9.1/</loc>
+    <lastmod>2026-04-03T07:28:08+02:00</lastmod>
+  </url><url>
+    <loc>https://sddc-blog.org/tags/vvf9.1/</loc>
+    <lastmod>2026-04-03T07:28:08+02:00</lastmod>
+  </url><url>
+    <loc>https://sddc-blog.org/posts/how-to-install-vcf-installer-902/</loc>
     <lastmod>2026-03-28T07:28:08+02:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://sddc-blog.org/about/</loc>
     <lastmod>2026-03-19T12:42:12+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/howto-install-offline-depot/</loc>
+    <loc>https://sddc-blog.org/posts/howto-install-offline-depot/</loc>
     <lastmod>2026-03-18T13:35:33+01:00</lastmod>
   </url>
 </urlset>
