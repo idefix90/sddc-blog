@@ -7,9 +7,247 @@
 		<generator>Hugo -- 0.160.1</generator>
 		<language>en-us</language>
 		<copyright>Harald Schneider</copyright>
-		<lastBuildDate>Fri, 03 Apr 2026 07:28:08 +0200</lastBuildDate>
+		<lastBuildDate>Wed, 08 Apr 2026 13:35:33 +0100</lastBuildDate>
 		<atom:link href="https://sddc-blog.org/tags/vvf9.1/index.xml" rel="self" type="application/rss+xml" />
 		
+		
+		<item>
+			<title>How to migrate from vSphere to VMware vSphere Foundation (VVF)</title>
+			<link>https://sddc-blog.org/posts/how-to-migrate-from-vsphere902-to-vvf902/</link>
+			<pubDate>Wed, 08 Apr 2026 13:35:33 +0100</pubDate><author>Harald Schneider</author><guid>https://sddc-blog.org/posts/how-to-migrate-from-vsphere902-to-vvf902/</guid>
+			<description><![CDATA[&lt;no value&gt;]]></description><content type="text/html" mode="escaped"><![CDATA[<h1 id="prerequisites">Prerequisites:<a href="#prerequisites" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h1>
+<ul>
+<li>
+<p>Installed VCF Installer (latest version)</p>
+</li>
+<li>
+<p>Depot Configuration has been done</p>
+</li>
+<li>
+<p>Binaries are downloaded with status &ldquo;Success&rdquo;</p>
+</li>
+<li>
+<p>vCenter version at least 9.0.x</p>
+</li>
+<li>
+<p>Your virtual switch infrastructure is based on DVS</p>
+</li>
+</ul>
+<p>for more Information on Preparing to Deploy a new VMware Cloud
+Foundation or vSphere Foundation Platform, please visit:</p>
+<p><a href="https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/deployment/deploying-a-new-vmware-cloud-foundation-or-vmware-vsphere-foundation-private-cloud-/preparing-your-environment.html">https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-0/deployment/deploying-a-new-vmware-cloud-foundation-or-vmware-vsphere-foundation-private-cloud-/preparing-your-environment.html</a></p>
+<h2 id=""><a href="#" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h2>
+<h1 id="start-the-migration-process">Start the migration process<a href="#start-the-migration-process" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h1>
+<ul>
+<li>Connect to your VCF Installer appliance via https and provide the
+credentials.</li>
+</ul>
+<p><img src="images/image1.png" alt=""></p>
+<ul>
+<li>After logging into VCF Installer, select &ldquo;DEPLOYMENT WIZARD&rdquo; to start
+the migration process.</li>
+</ul>
+<p><img src="images/image2.png" alt=""></p>
+<ul>
+<li>To import an existing vCenter, opt in the checkbox next to &ldquo;Use an
+existing vCenter as the management domain vCenter.&rdquo; and click &ldquo;NEXT&rdquo;</li>
+</ul>
+<p><img src="images/image3.png" alt=""></p>
+<ul>
+<li>Select the target version and proceed with &ldquo;NEXT&rdquo;</li>
+</ul>
+<blockquote>
+<p>Optionally, you can enable &ldquo;Auto-generate passwords for newly
+installed appliances&rdquo; or disable &ldquo;Enable Customer Experience
+Improvement Program (CEIP)&rdquo;</p>
+</blockquote>
+<p><img src="images/image4.png" alt=""></p>
+<ul>
+<li>
+<p>VCF Operations is a core component for VVF and VCF, it is responsible
+for e.g. Licensing</p>
+<ul>
+<li>
+<p>Operations Appliance Size: Size of the appliance &ndash; small is only
+recommended for lab environments!</p>
+</li>
+<li>
+<p>Operations primary FQDN -e.g. when you will have more than 1
+appliance, specify the load balancer (VIP) name as FQDN</p>
+</li>
+<li>
+<p>Administrator Password</p>
+</li>
+<li>
+<p>Root Password</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/image5.png" alt=""></p>
+<ul>
+<li>
+<p>Specify the current vCenter credentials for importing the existing
+vCenter into the VVF or VCF Environment, click &ldquo;NEXT&rdquo;</p>
+<ul>
+<li>
+<p>vCenter: FQDN of your existing vCenter appliance</p>
+</li>
+<li>
+<p>Root Password: root password of your existing vCenter appliance</p>
+</li>
+<li>
+<p>SSO user name: e.g. <a href="mailto:administrator@vsphere.local">administrator@vsphere.local</a></p>
+</li>
+<li>
+<p>SSO password: e.g. Password of your <a href="mailto:administrator@vsphere.local">administrator@vsphere.local</a>
+account</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/image6.png" alt=""></p>
+<ul>
+<li>You have to confirm the vCenter certificate to proceed.</li>
+</ul>
+<p><img src="images/image7.png" alt=""></p>
+<ul>
+<li>
+<p>Review the planned deployment or download the json spec.</p>
+<ul>
+<li>Optional: You can download the json spec and edit with your
+preferred editor to modify values or options which are not present
+in the UI.</li>
+</ul>
+</li>
+<li>
+<p>You can then import the json spec at the very beginning to deploy your
+customized environment.</p>
+</li>
+</ul>
+<p><img src="images/image8.png" alt=""></p>
+<ul>
+<li>
+<p>The &ldquo;Validate &amp; Deploy&rdquo; Stage checks all settings and validates the
+environment.</p>
+</li>
+<li>
+<p>Correct any error and analyze all warnings prior clicking &ldquo;DEPLOY&rdquo;</p>
+</li>
+</ul>
+<blockquote>
+</blockquote>
+<p><img src="images/image9.png" alt=""></p>
+<ul>
+<li>You can monitor the deployment status within the VCF Installer UI.</li>
+</ul>
+<blockquote>
+<p>If any error occurs, consult the log file and correct the problem.
+After that, simply restart the deployment with the button on the upper
+right corner which will be visible in case of an error.</p>
+<p>But don't panic! This installation takes time! In my LAB environment
+I had to wait approx. 35 Minutes.</p>
+</blockquote>
+<p><img src="images/image10.png" alt=""></p>
+<ul>
+<li>When completed, follow the next steps regarding the licensing of the
+environment</li>
+</ul>
+<p><img src="images/image11.png" alt=""></p>
+<h1 id="troubleshooting">Troubleshooting:<a href="#troubleshooting" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h1>
+<p>ssh into your VCF Installer appliance and look at
+/var/log/vmware/vcf/domainmanager/domainmanager.log for any
+installation issues.</p>
+<h1 id="connect-vcf-operations-with-vcenter">Connect VCF Operations with vCenter<a href="#connect-vcf-operations-with-vcenter" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h1>
+<ul>
+<li>Login into VCF Operations</li>
+</ul>
+<p><img src="images/image12.png" alt=""></p>
+<ul>
+<li>Go to Administration -&gt; Integrations, select &ldquo;ADD&rdquo; and select
+&ldquo;vCenter&rdquo; as account type.</li>
+</ul>
+<p><img src="images/image13.png" alt=""></p>
+<ul>
+<li>Fill out all required fields and click &ldquo;VALIDATE CONNECTION&rdquo;, on
+success, click &ldquo;ADD&rdquo;</li>
+</ul>
+<p><img src="images/image14.png" alt=""></p>
+<ul>
+<li>Confirm this information.</li>
+</ul>
+<p><img src="images/image15.png" alt=""></p>
+<ul>
+<li>Within the List of Integrations, expand the entry with status
+&ldquo;Stopped&rdquo; and click the three dots</li>
+</ul>
+<p><img src="images/image16.png" alt=""></p>
+<ul>
+<li>Select &ldquo;Start Collecting All&rdquo; to enable metric collection</li>
+</ul>
+<p><img src="images/image17.png" alt=""></p>
+<ul>
+<li>Now, the Integration is displaying a warning, but this should
+disappear after a while.</li>
+</ul>
+<p><img src="images/image18.png" alt=""></p>
+<p>After approx. 10 minutes, the status is green.</p>
+<p><img src="images/image19.png" alt=""></p>
+<h1 id="integrate-vcf-operations-for-logs-with-vcf-operations">Integrate VCF Operations for Logs with VCF Operations<a href="#integrate-vcf-operations-for-logs-with-vcf-operations" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round" class="feather">
+      <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+      <line x1="8" y1="12" x2="16" y2="12"></line>
+   </svg></a></h1>
+<blockquote>
+<p>This step is optional but highly recommended!</p>
+<p>VCF Operations for Logs is a component where you can store your logs
+in a central place for troubleshooting.</p>
+</blockquote>
+<ul>
+<li>Navigate to &ldquo;Infrastructure Operations&rdquo; -&gt; &ldquo;Analyze&rdquo; and click
+&ldquo;CONFIGURE OPERATIONS-LOGS APPLIANCE&rdquo;</li>
+</ul>
+<p><img src="images/image20.png" alt=""></p>
+<ul>
+<li>On the &ldquo;Operations-Logs Appliance Integration&rdquo; provide the connection
+details for your manually deployed VCF Operations for Logs appliance
+and click &ldquo;VALIDATE CONNECTION&rdquo;.</li>
+</ul>
+<p><img src="images/image21.png" alt=""></p>
+<ul>
+<li>
+<p>Click &ldquo;SAVE&rdquo; when the connection test was successful.</p>
+</li>
+<li>
+<p>Check the integration &ndash; Navigate to &ldquo;Infrastructure Operations&rdquo; -&gt;
+&ldquo;Analyze&rdquo; and see, if your syslog Information is displayed.</p>
+</li>
+</ul>
+<p><img src="images/image22.png" alt=""></p>
+<p><strong>Congratulations!</strong></p>
+<p><strong>You have completed the basic VVF 9.0.2 deployment!</strong></p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>How to upgrade your vSphere 8.0U3 to vSphere 9.0.2</title>
